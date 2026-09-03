@@ -230,6 +230,45 @@
 
   footer.note { margin-top: 40px; color: var(--muted); font-size: 12.5px; font-style: italic; }
 
+  /* ---- unified complete-flow view ---- */
+  .flow { display: flex; flex-direction: column; align-items: center; gap: 0; margin-top: 14px; }
+  .flow-arrow { color: var(--border); font-size: 20px; line-height: 1; margin: 3px 0; }
+
+  .flow-intake { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: center; margin-bottom: 3px; }
+  .flow-client { display: flex; flex-direction: column; align-items: center; gap: 6px; font-family: "Poppins", sans-serif; font-weight: 600; font-size: 11.5px; color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; }
+  .flow-client-icon { width: 42px; height: 42px; border-radius: 999px; background: var(--blue-soft); display: flex; align-items: center; justify-content: center; color: var(--blue); }
+  .flow-client-icon svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .flow-request { font-family: "Poppins", sans-serif; font-weight: 600; font-size: 12px; color: var(--blue); background: var(--blue-softer); border: 1px solid var(--border); border-radius: 999px; padding: 6px 14px; white-space: nowrap; }
+  .flow-dept { font-family: "Poppins", sans-serif; font-weight: 600; font-size: 15px; color: #fff; background: var(--navy); border-radius: 14px; padding: 16px 26px; text-align: center; max-width: 260px; }
+
+  .flow-pill { font-family: "Poppins", sans-serif; font-weight: 600; font-size: 12.5px; color: var(--navy); background: var(--blue-softer); border: 1px solid var(--border); border-radius: 999px; padding: 8px 18px; text-align: center; }
+
+  .flow-leads { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; width: 100%; margin: 4px 0; }
+  .flow-lead { flex: 1 1 230px; max-width: 320px; border-radius: 14px; padding: 14px 16px; color: #fff; text-align: center; }
+  .flow-lead .flow-lead-name { font-family: "Poppins", sans-serif; font-weight: 600; font-size: 14px; }
+  .flow-lead .flow-lead-role { font-size: 11.5px; font-style: italic; opacity: 0.85; margin-top: 3px; }
+  .flow-lead.o-javier { background: var(--owner-javier); }
+  .flow-lead.o-will { background: var(--owner-will); }
+  .flow-lead.o-luis { background: var(--owner-luis); }
+
+  .flow-categories { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; width: 100%; margin: 4px 0; }
+  .flow-cat { font-family: "Poppins", sans-serif; font-weight: 600; font-size: 12px; color: #fff; border-radius: 999px; padding: 7px 16px; }
+  .flow-cat.o-javier { background: var(--owner-javier); }
+  .flow-cat.o-will { background: var(--owner-will); }
+  .flow-cat.o-luis { background: var(--owner-luis); }
+
+  .flow-tasks { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; width: 100%; margin: 6px 0 4px; }
+  .flow-task-col { border: 1px solid var(--border); border-top: 3px solid var(--blue); border-radius: 10px; padding: 12px 14px 14px; break-inside: avoid; }
+  .flow-task-col.o-javier { border-top-color: var(--owner-javier); }
+  .flow-task-col.o-will { border-top-color: var(--owner-will); }
+  .flow-task-col.o-luis { border-top-color: var(--owner-luis); }
+  .flow-task-col h4 { margin: 0 0 8px; font-family: "Poppins", sans-serif; font-size: 12.5px; font-weight: 600; color: var(--navy); }
+  .flow-task-col ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .flow-task-col li { font-size: 11.5px; line-height: 1.35; color: var(--text); display: flex; gap: 5px; }
+  .flow-task-col li::before { content: "»"; color: var(--blue); font-weight: 600; flex: none; }
+
+  .flow-final { font-family: "Poppins", sans-serif; font-weight: 700; font-size: 15px; color: #fff; background: var(--navy); border-radius: 14px; padding: 16px 30px; text-align: center; letter-spacing: 0.02em; margin-top: 2px; }
+
   /* ---- motion ----
      Resting state: the chart is fully visible with no JS at all (opacity:1,
      lines fully drawn). A scroll observer then toggles ".playing" on
@@ -282,7 +321,7 @@
   <nav class="quicknav" aria-label="Navegación rápida del organigrama">
     <a class="quicknav-home" href="#top">Organigrama</a>
     <span class="sep"></span>
-    <a href="#det-will">Will</a>
+    <a href="#det-will">Wilfrido Becerril Arroyo</a>
     <a href="#det-javier">Javier López</a>
     <a href="#det-luis">Luis Medina</a>
     <span class="quicknav-spacer"></span>
@@ -319,7 +358,7 @@
         <rect x="430" y="76" width="340" height="100" rx="14" style="fill:var(--navy)"/>
         <foreignObject x="430" y="76" width="340" height="100">
           <div xmlns="http://www.w3.org/1999/xhtml" class="box-inner box-top">
-            <div class="name"><a href="#det-will">Will</a></div>
+            <div class="name"><a href="#det-will">Wilfrido Becerril Arroyo</a></div>
             <div class="role">Coordinador de TI e Infraestructura — supervisión directa</div>
           </div>
         </foreignObject>
@@ -376,7 +415,7 @@
   <div class="detail-heading"><h2>Detalle por área de servicio</h2><div class="rule"></div></div>
   <p class="detail-note">Mismas responsabilidades del organigrama, con el detalle completo de tareas por área.</p>
 
-  <div class="owner-band" id="det-will"><span class="dot navy"></span> Will — Coordinador de TI e Infraestructura (supervisión directa)</div>
+  <div class="owner-band" id="det-will"><span class="dot navy"></span> Wilfrido Becerril Arroyo — Coordinador de TI e Infraestructura (supervisión directa)</div>
   <div class="cards">
     <div class="card" id="card-sistemas">
       <h3><span class="card-icon"><svg viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .5-7.97A5.5 5.5 0 0 0 7.1 8.5 4 4 0 0 0 7 18Z"/></svg></span>Sistemas</h3>
